@@ -1,10 +1,9 @@
 <p>exemplo-pipes works!</p>
-<p>Título: {{ livro.titulo | uppercase }}</p>
+<p>Título: {{ livro.titulo | uppercase | camelCase }}</p>
 <p>Estrelas: {{ livro.rating | number:'1.1-1' }}</p>
 <p>Páginas: {{ livro.numeroPaginas }}</p>
 <p>Preço: {{ livro.preco | currency:'BRL' }}</p>
-<p>Data de Lançamento: {{ livro.dataLancamento | date:'dd-MM-yyyy' }}</p>
+<p>Data de Lançamento: {{ livro.dataLancamento | date }}</p>
 <p>Url: {{ livro.url }}</p>
 <br>
 <p>Livro: {{ livro | json }}</p>
-<p></p>
