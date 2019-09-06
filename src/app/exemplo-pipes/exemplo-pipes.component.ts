@@ -16,6 +16,8 @@ export class ExemploPipesComponent implements OnInit {
     url: 'http://a.co/glgjpRP'
   };
 
+  livros: string[] = ['C#', 'Angular 8'];
+  
   constructor() { }
 
   ngOnInit() {
