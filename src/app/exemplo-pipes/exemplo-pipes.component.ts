@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { mapToMapExpression } from '@angular/compiler/src/render3/util';
+
 
 @Component({
   selector: 'app-exemplo-pipes',
@@ -17,7 +20,30 @@ export class ExemploPipesComponent implements OnInit {
   };
 
   livros: string[] = ['C#', 'Angular 8'];
-  
+  filtro: string;
+
+  addCurso(value){
+    this.livros.push(value);
+  }
+
+  obterCursos(){
+    if (this.livros.length === 0 || this.filtro === undefined
+      || this.filtro.trim() === '') 
+      return this.livros;
+
+      
+    return this.livros.filter((v) => {
+      if (v.toLowerCase().indexOf(this.filtro.toLowerCase()) >= 0) {
+        return true;
+      }
+      return false;
+    });
+  }
+
+  valueAsync = new Promise((resolve, reject) => {
+    setTimeout(() => resolve('Valor Assincrono'), 2000)
+  });  
+
   constructor() { }
 
   ngOnInit() {
